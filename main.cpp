@@ -36,9 +36,7 @@
 **
 ** $QT_END_LICENSE$
 **
-****************************************************************************/
-#include "../../shared/shared.h"
-//#include "dbase_connector.h"
+****************************************************************************///#include "dbase_connector.h"
 //#include "dbase_connector_global.h"
 #include "Connector.h"
 //DECLARATIVE_EXAMPLE_MAIN(demos/tweetsearch/tweetsearch)
