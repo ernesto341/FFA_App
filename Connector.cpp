@@ -44,8 +44,8 @@ QString Connector::connect(QString e)
     std::string schema;
     server = "40.122.202.64";
     port = "32798";
-    u = "test";
-    p = "test";
+    u = "root";
+    p = "FFA-Ay@l@_R!ch@rd@-3323";
     schema = "FFA_PROD";
     QString data = "";
     if (server.length() < 7 || port.length() < 4 || u.length() < 1 || p.length() < 1 || schema.length() < 1 || e.length() < 5)
@@ -75,13 +75,17 @@ QString Connector::connect(QString e)
         qDebug() << "driver address: " << driver <<"\n"\
         << "Major Version: " << driver->getMajorVersion()\
         << " Minor Version: " << driver->getMinorVersion() << "\n";
+        qDebug() << "Address: " << address.c_str() << "\n";
+        qDebug() << "User: " << u.c_str() << "\n";
+        qDebug() << "Password: " << p.c_str() << "\n";
         //sql::ConnectOptionsMap options;
         //options.insert( std::pair<sql::SQLString, sql::ConnectPropertyVal>(address,"hostName") );
         //options.insert( std::pair<sql::SQLString, sql::ConnectPropertyVal>(u,"userName") );
         //options.insert( std::pair<sql::SQLString, sql::ConnectPropertyVal>(p,"password") );
         //con = driver->connect(options);
         /* HERE */
-        con = driver->connect(address.c_str(), u.c_str(), p.c_str());
+        con = driver->connect("tcp://40.122.202.64", "test", "test");
+//        con = driver->connect(address.c_str(), u.c_str(), p.c_str());
         if (!con)
         {
             return (data);

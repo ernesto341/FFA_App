@@ -39,6 +39,11 @@
 ****************************************************************************///#include "dbase_connector.h"
 //#include "dbase_connector_global.h"
 #include "Connector.h"
+#include <QDir>
+#include <QGuiApplication>
+#include <QQmlEngine>
+#include <QQmlFileSelector>
+#include <QQuickView>
 //DECLARATIVE_EXAMPLE_MAIN(demos/tweetsearch/tweetsearch)
 
 int main(int argc, char* argv[])

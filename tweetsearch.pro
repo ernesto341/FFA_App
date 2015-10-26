@@ -27,7 +27,8 @@ HEADERS +=    mysql-connector-c++-noinstall-1.1.6-win32/include/cppconn/build_co
     mysql-connector-c++-noinstall-1.1.6-win32/include/mysql_error.h \
     mysql-connector-c++-noinstall-1.1.6-win32/include/boost/shared_ptr.hpp \
     mysql-connector-c++-noinstall-1.1.6-win32/include/boost/scoped_ptr.hpp \
-    Connector.h
+    Connector.h \
+    ../../../../Qt/Examples/Qt-5.5/quick/shared/shared.h
 
 OTHER_FILES = tweetsearch.qml \
               content/*.qml \
@@ -39,8 +40,13 @@ INSTALLS += target
 
 win32:CONFIG(release, debug|release): LIBS += -L$$PWD/mysql-connector-c++-noinstall-1.1.6-win32/lib/ -lmysqlcppconn
 else:win32:CONFIG(debug, debug|release): LIBS += -L$$PWD/mysql-connector-c++-noinstall-1.1.6-win32/lib/ -lmysqlcppconn
-else:unix: LIBS += -L$$PWD/Users/Ernest/Desktop/mysql-connector-c++-noinstall-1.1.6-win32/lib/ -lmysqlcppconn
+else:unix: LIBS += -L$$PWD/mysql-connector-c++-noinstall-1.1.6-win32/lib/ -lmysqlcppconn
 
 INCLUDEPATH += $$PWD/mysql-connector-c++-noinstall-1.1.6-win32/include
 DEPENDPATH += $$PWD/mysql-connector-c++-noinstall-1.1.6-win32/include
 DEPENDPATH += $$PWD/mysql-connector-c++-noinstall-1.1.6-win32/lib
+
+unix|win32: LIBS += -L$$PWD/mysql-connector-c++-noinstall-1.1.6-win32/lib/ -lmysqlcppconn-static
+
+INCLUDEPATH += $$PWD/mysql-connector-c++-noinstall-1.1.6-win32/include
+DEPENDPATH += $$PWD/mysql-connector-c++-noinstall-1.1.6-win32/include
