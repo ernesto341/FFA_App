@@ -5,14 +5,13 @@ Connector::Connector(QObject *parent) : QObject(parent)
 
 }
 
-/*
 QString Connector::connect(QString e)
 {
     QString data = "";
     //QSqlDriver * driver = new QSqlDriver();
     QSqlDatabase db;
     db.addDatabase("FFA_PROD");
-    db.setHostName("40.122.202.64");
+    db.setHostName("ffaapp.ddns.net");
     db.setDatabaseName("FFA_PROD");
     db.setUserName("test");
     db.setPassword("test");
@@ -33,8 +32,8 @@ QString Connector::connect(QString e)
     db.close();
     return (data);
 }
-*/
 
+/*
 QString Connector::connect(QString e)
 {
     std::string server;
@@ -42,7 +41,7 @@ QString Connector::connect(QString e)
     std::string u;
     std::string p;
     std::string schema;
-    server = "40.122.202.64";
+    server = "ffaapp.ddns.net";
     port = "32798";
     u = "root";
     p = "FFA-Ay@l@_R!ch@rd@-3323";
@@ -83,7 +82,6 @@ QString Connector::connect(QString e)
         //options.insert( std::pair<sql::SQLString, sql::ConnectPropertyVal>(u,"userName") );
         //options.insert( std::pair<sql::SQLString, sql::ConnectPropertyVal>(p,"password") );
         //con = driver->connect(options);
-        /* HERE */
         con = driver->connect("tcp://40.122.202.64", "test", "test");
 //        con = driver->connect(address.c_str(), u.c_str(), p.c_str());
         if (!con)
@@ -119,3 +117,5 @@ QString Connector::connect(QString e)
     }
     return (data);
 }
+
+        */

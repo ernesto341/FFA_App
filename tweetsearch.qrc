@@ -17,5 +17,6 @@
         <file>content/resources/icon-search.png</file>
         <file>content/resources/scale_black10.png</file>
         <file>content/resources/arrow-blue-transparent.png</file>
+        <file>content/resources/pig-anim-sprites.png</file>
     </qresource>
 </RCC>

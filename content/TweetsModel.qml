@@ -57,6 +57,9 @@ Item {
     property string from : ""
     property string phrase : ""
     property real quantity : 0.0
+    property double latitude : -200.0
+    property double longitude : -200.0
+    property double speed : 0.0
     property string res : "";
     property string query : "SELECT * FROM users;";
 

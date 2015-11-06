@@ -39,12 +39,35 @@
 ****************************************************************************/
 
 import QtQuick 2.0
+import QtPositioning 5.3
 
 Rectangle {
     color: "#d6d6d6"
     width: parent.width
     height: childrenRect.height
     z: 2
+
+    PositionSource
+    {
+        id: loc
+        updateInterval: 60000
+        active: true
+
+        onPositionChanged:
+        {
+            if (loc.sourceError == PositionSource.NoError)
+            {
+                tweetsModel.longitude = loc.position.coordinate.longitude;
+                tweetsModel.latitude = loc.position.coordinate.latitude;
+                if (loc.position.speedValid)
+                {
+                    tweetsModel.speed = loc.position.coordinate.speed;
+                    // updateInterval = distToFarm / tweetsModel.speed;
+                }
+            }
+        }
+    }
+
     Connections {
         target: mainListView
         onAutoSearch: {
@@ -179,6 +202,28 @@ Rectangle {
             height: 300
             running: true
             interpolate: false
+            Sprite
+            {
+                name: "pig"
+                source: "resources/pig-anim-sprites.png"
+                frameCount: 1
+                frameRate: 1
+                frameWidth: 320
+                frameHeight: 300
+                to: { "pig":5, "blink":1 }
+            }
+            Sprite {
+                name: "blink"
+                source: "resources/pig-anim-sprites.png"
+                frameCount: 3
+                frameRate: 3
+                frameWidth: 320
+                frameHeight: 300
+                frameX: 320
+                to: {"pig":1}
+            }
+
+            /*
             Sprite {
                 name: "bird"
                 source: "resources/bird-anim-sprites.png"
@@ -207,6 +252,7 @@ Rectangle {
                 frameX: 1600
                 to: {"bird":1}
             }
+            */
         }
     }
 }

@@ -1,6 +1,6 @@
 TEMPLATE = app
 
-QT += quick qml sql
+QT += quick qml sql positioning
 SOURCES += main.cpp \
     Connector.cpp
 
