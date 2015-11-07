@@ -9,8 +9,8 @@ QString Connector::connect(QString e)
 {
     QString data = "";
     //QSqlDriver * driver = new QSqlDriver();
-    QSqlDatabase db;
-    db.addDatabase("FFA_PROD");
+    QSqlDatabase db = QSqlDatabase::addDatabase("QMYSQL", "FFA_PROD");
+    //db.addDatabase("FFA_PROD");
     db.setHostName("ffaapp.ddns.net");
     db.setDatabaseName("FFA_PROD");
     db.setUserName("test");
@@ -24,7 +24,7 @@ QString Connector::connect(QString e)
         return (data);
     }
     QSqlQuery query;
-    query.prepare(e);
+    query.exec(e);
     qDebug() << "Size of result: " << query.size();
     while(query.next())
         qDebug() << query.value(1).toString();
