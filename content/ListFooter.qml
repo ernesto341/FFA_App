@@ -210,7 +210,7 @@ Rectangle {
                 frameRate: 1
                 frameWidth: 320
                 frameHeight: 300
-                to: { "pig":5, "blink":1 }
+                to: { "pig":10, "blink":1 }
             }
             Sprite {
                 name: "blink"
